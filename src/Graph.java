@@ -1,5 +1,8 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 
 /**
  * <p>Classe responsável por conter as informações e operações referentes a estrutura de dados Grafo</p>
@@ -16,9 +19,8 @@ public class Graph {
      * popular um grafo com as informações de um arquivo de texto.</p>
      * @param path o caminho para o arquivo de texto com as informações a serem populadas no grafo
      */
-    public Graph(String path){
+    public Graph(String path) throws FileNotFoundException {
         edges = 0;
-        depoIndex = 0;
         adj = new HashMap<>();
         buildGraph(path);
     }
@@ -83,11 +85,12 @@ public class Graph {
      * adjascência
      * @param filepath uma String contendo o caminho para o arquivo de texto com as informações dos correntistas
      */
-    private void buildGraph(String filepath){
+    private void buildGraph(String filepath) throws FileNotFoundException {
+            Scanner in;
         try{
-            Scanner in = new Scanner(new File(filepath));
+            in = new Scanner(new File(filepath));
         }catch(FileNotFoundException e){
-            throws new FileNotFoundException("Erro: o caminho ["+filepath+"] está incorreto ou não pôde ser acessado.")
+            throw  new FileNotFoundException("Erro: o caminho ["+filepath+"] está incorreto ou não pôde ser acessado.");
         }
         
         // Define o número total de vértices do grafo
@@ -100,13 +103,14 @@ public class Graph {
             */
             String[] line = in.nextLine().split(" ");
             // Cria um objeto Account com as informações da linha
-            Account acc = new Account(line[0], line[1], line[2]);
+            Account acc = new Account(Integer.parseInt(line[0]), line[1], line[2]);
             /*
             * Adiciona na lista de adjascência a conta criada como chave, e inicializa como valor um ArrayList
             * de contas.
             */
-            adj.put(acc,new HashMap<Account,ArrayList<Account>>());
+            adj.put(acc,new ArrayList<Account>());
             // Percorre a lista de adjascência procurando por uma ligãção entre as contas
+            //TODO Resolver problema de iteração sobre hashMap
             for(Account accAux : adj){
                 // Previne uma conta seja adjascente a ela mesma
                 if (acc.getAccountID() != accAux.getAccountID()){
