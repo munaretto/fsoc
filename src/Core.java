@@ -32,7 +32,7 @@ public class Core {
                 // Percorre o conjunto de chaves
                 for(Account goal : keysAux){
                     // Realiza o processamento de cada hashmap,
-                    ArrayList<Account> current = comparePaths(aux,start,goal,new ArrayList<Account>());
+                    ArrayList<Account> current = comparePaths(aux,goal,new ArrayList<Account>());
                     if(resultPath == null || current.size() < resultPath.size()){
                         resultPath = current;
                     }
@@ -70,17 +70,17 @@ public class Core {
         return ref;
     }
 
-    private ArrayList<Account> comparePaths(HashMap<Account,Account> hm, Account s, Account f, ArrayList<Account> ar){
+    private ArrayList<Account> comparePaths(HashMap<Account,Account> hm, Account f, ArrayList<Account> ar){
         Account newGoal = f;
         /*
         * Caso de parada da recursão. Retorna o arraylist com o caminho caso o newGoal seja o "ponto inicial" da bfs
         */
-        if(hm.get(newGoal) == s) return ar;
+        if(hm.get(newGoal) == null) return ar;
         // Adiciona o vértice atual ao arraylist com o caminho
         ar.add(newGoal);
         // Atualiza o valor do vértice atual, seguindo as ligações indicadas pelo hashmap gerado pela bfs
         newGoal = hm.get(newGoal);
         // Chama a recursão
-        return comparePaths(hm,s,newGoal,ar);
+        return comparePaths(hm,newGoal,ar);
     }
 }
