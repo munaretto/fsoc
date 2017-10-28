@@ -3,6 +3,7 @@
  * identificador e o nome dos correntistas.</p>
  *
  * @author Guilherme de Oliveira Munaretto
+ * @author Igor Sgorla Brehm
  *
  */
 public class Account {
