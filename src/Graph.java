@@ -158,7 +158,6 @@ public class Graph {
                     else{
                         goalHolder = line[i];
                     }
-                    System.out.println(startingHolder+" - "+goalHolder);
                 }
 
             }

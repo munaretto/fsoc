@@ -90,7 +90,7 @@ public class Core {
                     // Marca como visitado
                     visited.put(acc,true);
                     // Diz de onde ele veio
-                    ref.put(acc,acc);
+                    ref.put(acc,aux);
                     // Coloca o vizinho na fila
                     q.offer(acc);
                 }
