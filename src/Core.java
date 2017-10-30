@@ -118,7 +118,7 @@ public class Core {
             if(hm.get(aux) == null){
                 return al;
             }
-            queue.offer(aux);
+            queue.offer(hm.get(aux));
         }
         return al;
 
