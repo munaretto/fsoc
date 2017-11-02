@@ -22,7 +22,14 @@ public class Core {
      * @return Uma String com as informações sobre o software 'fsoc' e seu desenvolvimento
      */
     public String about(){
-        return "";
+        return "Este programa foi desenvolvido por Guilherme de Oliveira Munaretto e Igor Sgorla Brehm como parte do" +
+                "segundo trabalho da disciplina de Algorítmos e Estruturas de Dados II, do curso de Engenharia de Software" +
+                "da Pontifícia Universidade Católica do Rio Grande do Sul.\n\n" +
+                "" +
+                "Professor Orientador: Marcelo Cohen (marcelo.cohen@pucrs.br)\n" +
+                "Aluno: Guilherme de Oliveira Munaretto (guilherme.munaretto@acad.pucrs.br)\n" +
+                "Aluno: Igor Sgorla Brehm (igor.brehm@acad.pucrs.br)\n" +
+                "Repositório do projeto: http://github.com/munaretto/fsoc";
     }
 
     /**
