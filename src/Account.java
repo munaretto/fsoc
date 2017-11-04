@@ -1,3 +1,5 @@
+package src;
+
 /**
  * <p>Esta classe tem como objetivo armazenar as informações referentes às contas conjuntas, contendo o seu número
  * identificador e o nome dos correntistas.</p>
